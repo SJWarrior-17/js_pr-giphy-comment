@@ -1,0 +1,13 @@
+name: 'Giphy PR Comments'
+description: 'Add a Giphy GIG Comment to new pull request'
+inputs:
+  github-token:
+    description: 'GitHub Token'
+    required: true
+  giphy-api-token:
+    description: 'Giphy API Token'
+    required: true
+
+runs:
+  using: node24
+  main: dist/index.js
