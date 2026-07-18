@@ -128,3 +128,10 @@ npx ncc build index.js -o dist
 vi .gitignore
 ```
 node_modules
+
+---
+
+## Publishing Action on GitHub Action Marketplace
+
+Ref: https://docs.github.com/en/actions/how-tos/create-and-publish-actions/publish-in-github-marketplace
+Ref: https://docs.github.com/en/actions/reference/workflows-and-actions/metadata-syntax#inputs

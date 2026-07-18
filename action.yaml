@@ -1,4 +1,4 @@
-name: 'Giphy PR Comments'
+name: 'SJ_TEST Giphy PR Comments'
 description: 'Add a Giphy GIG Comment to new pull request'
 inputs:
   github-token:
@@ -11,3 +11,7 @@ inputs:
 runs:
   using: node24
   main: dist/index.js
+
+branding:
+  icon: 'gift'
+  color: 'green'
