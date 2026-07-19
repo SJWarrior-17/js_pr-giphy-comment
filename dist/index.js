@@ -36426,17 +36426,18 @@ async function run() {
       owner,
       repo,
       issue_number: number,
-      body: `### PR - ${number} ### 🎉 Thanks for contributing!\n![Giphy](${prComment.data.images.downsized.url})`
+      body: `### PR - ${number} ### 🎉 Thanks for contributing!\n![Giphy](${prComment.data.image_url})`
     });
 
-    core.setOutput('comment-url', '${prComment.data.images.downsized.url}');
-    console.log('Giphy GIF comment added successfully! Comment URL: ${prComment.data.images.downsized.url}')
+    core.setOutput('comment-url', '${prComment.data.image_url}');
+    console.log('Giphy GIF comment added successfully! Comment URL: ${prComment.data.image_url}');
   } catch (error) {
     core.setFailed(error.message);
     process.exit(1);
   }
 }
 run();
+
 
 module.exports = __webpack_exports__;
 /******/ })()
