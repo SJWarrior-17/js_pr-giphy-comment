@@ -111,7 +111,7 @@ npm install --save-dev @vercel/ncc@0.44.1
 
 ```
 npm install --save-dev @vercel/ncc@latest
-``
+```
 
 ### To reduce file size and avoid committing node_modules, bundle your code into a single file
 ```

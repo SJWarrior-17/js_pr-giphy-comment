@@ -36412,7 +36412,7 @@ const github = __nccwpck_require__(3228);
 async function run() {
   try {
     const githubToken = core.getInput('github-token');
-    const giphyApiKey = core.getInput('giphy-api-key');
+    const giphyApiKey = core.getInput('giphy-api-token');
 
     const octokit = new Octokit({ auth: githubToken });
     const giphy = Giphy(giphyApiKey);

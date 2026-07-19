@@ -6,7 +6,7 @@ const github = require('@actions/github');
 async function run() {
   try {
     const githubToken = core.getInput('github-token');
-    const giphyApiKey = core.getInput('giphy-api-key');
+    const giphyApiKey = core.getInput('giphy-api-token');
 
     const octokit = new Octokit({ auth: githubToken });
     const giphy = Giphy(giphyApiKey);
