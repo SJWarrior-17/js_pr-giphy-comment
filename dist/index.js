@@ -36419,30 +36419,35 @@ async function run() {
 
     const { owner, repo, number: issue_number } = github.context.issue;
 
-    const prComment = await giphy.random('thank you');
+    const response = await giphy.random('thank you');
 
-    // Print the full response so you can verify the response structure
-    console.log(JSON.stringify(prComment, null, 2));
-
-    const gifUrl =
-      prComment?.data?.image_url ??
-      prComment?.data?.images?.downsized?.url;
+    const gifUrl = response?.data?.images?.downsized?.url;
 
     if (!gifUrl) {
-      throw new Error('No GIF URL found in the Giphy response.');
+      throw new Error(
+        `No GIF URL found: ${JSON.stringify(response)}`
+      );
     }
+
+    console.log(`GIPHY_URL - ${gifUrl}`);
+
+    const commentBody = `### 🎉 Thanks for contributing!
+
+![Giphy GIF](${gifUrl})`;
+
+    console.log(commentBody);
 
     await octokit.issues.createComment({
       owner,
       repo,
       issue_number,
-      body: `### 🎉 Thanks for contributing!
-
-![Giphy](${gifUrl})`
+      body: commentBody
     });
 
     core.setOutput('comment-url', gifUrl);
-    console.log(`Giphy GIF comment added successfully! Comment URL: ${gifUrl}`);
+
+    console.log(`Giphy GIF comment added successfully! ${gifUrl}`);
+
   } catch (error) {
     core.setFailed(error.message);
   }
